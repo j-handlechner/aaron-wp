@@ -238,12 +238,12 @@
                 </div> 
             </footer>
         </div>
-        
-        <script>
+    <?php wp_footer() ?>
+
+    <script>
             document.addEventListener("DOMContentLoaded", function(event) {
                 MainNav.init();
             });
-        </script>
-    <?php wp_footer() ?>
+    </script>
 </body>
 </html>
