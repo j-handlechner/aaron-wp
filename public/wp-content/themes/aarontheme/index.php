@@ -239,13 +239,11 @@
             </footer>
         </div>
         
-        <script src='./main.js'></script>
         <script>
             document.addEventListener("DOMContentLoaded", function(event) {
                 MainNav.init();
             });
         </script>
     <?php wp_footer() ?>
-
 </body>
 </html>
