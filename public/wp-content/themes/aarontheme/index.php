@@ -69,7 +69,7 @@
                                     </div>
                                     <a href="#" class="button">Book Workshop</a>  
                                 </div>
-          
+
                                 <div class="background-circle config-1 only-desktop"></div>
                                 <img class="only-desktop config-1 icon" src="<?php echo get_template_directory_uri() ?>/images/level-3.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
                                 <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-1">
@@ -239,11 +239,5 @@
             </footer>
         </div>
     <?php wp_footer() ?>
-
-    <script>
-            document.addEventListener("DOMContentLoaded", function(event) {
-                MainNav.init();
-            });
-    </script>
 </body>
 </html>
