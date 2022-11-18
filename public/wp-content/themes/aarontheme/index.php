@@ -238,6 +238,14 @@
                 </div> 
             </footer>
         </div>
+        
+        <script src='<?= get_template_directory_uri() ?>./main.js'></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+                MainNav.init();
+            });
+        </script>
+
     <?php wp_footer() ?>
 </body>
 </html>
