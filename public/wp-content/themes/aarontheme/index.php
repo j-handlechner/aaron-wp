@@ -138,18 +138,6 @@
                 </section>
     
                 <section id="about" class="full-bleed">
-                    <div class="about-container">
-                        <img
-                            sizes="(max-width: 1237px) 100vw, 1237px"
-                            srcset="
-                                <?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_200.png 200w,
-                                <?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_633.png 633w,
-                                <?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_912.png 912w,
-                                <?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_1088.png 1088w,
-                                <?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_1237.png 1237w"
-                            src="<?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_1237.png"
-                            alt="portrait of aaron" >
-                        <div class="text-content">
                         <?php
                             $aboutme_query = new WP_Query( array( 'p' => 8 ));
                             if( $aboutme_query->have_posts() ) {
@@ -158,6 +146,9 @@
                                     $aboutme_query->the_post(); // iterate the post here
                         ?>
 
+                    <div class="about-container">
+                        <?php the_post_thumbnail(); ?>
+                        <div class="text-content">
                             <p class="super-headline">
                                 <?= get_post_custom_values( 'super-headline' )[0]; ?>
                             </p>

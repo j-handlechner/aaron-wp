@@ -749,6 +749,7 @@ header .headline-button-wrapper a:hover {
   }
   #about img {
     width: 100%;
+    height: 100%;
   }
   #about .text-content {
     margin: 0 20px;
@@ -794,6 +795,7 @@ header .headline-button-wrapper a:hover {
   }
   #about img {
     width: 50%;
+    height: 100%;
     object-fit: cover;
   }
   #about .text-content {
@@ -834,6 +836,13 @@ header .headline-button-wrapper a:hover {
   #news {
     padding-top: 50px;
     max-width: 425px;
+  }
+  #news .super-headline{
+    margin-left: 20px;
+  }
+  #news h2 {
+    margin-bottom: 16px;
+    margin-left: 20px;
   }
   #news article {
     background-color: #F7F7F7;
