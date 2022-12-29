@@ -364,7 +364,7 @@ header .headline-button-wrapper a:hover {
 @media (min-width: 50rem) {
   header {
     height: 80vh;
-    background-image: url("../images/aaron-hero.png");
+    background-image: url("./images/aaron-hero.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: 95%;
@@ -387,7 +387,7 @@ header .headline-button-wrapper a:hover {
 }
 @media (min-width: 0rem) and (max-width: 49.9375rem) {
   header {
-    background-image: url("../images/aaron-hero.png");
+    background-image: url("./images/aaron-hero.png");
     background-size: cover;
     aspect-ratio: 1/1;
   }
@@ -852,13 +852,16 @@ header .headline-button-wrapper a:hover {
     width: 100%;
     column-gap: 32px;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow:scroll;
   }
   #news h2 {
     margin-bottom: 32px;
   }
   #news article {
     background-color: #F7F7F7;
-    width: calc(33.3% - 32px);
+    width: calc(33.3vw - 47px);
+    flex-shrink: 0;
   }
   #news article h3 {
     margin-left: 16px;

@@ -46,27 +46,24 @@
                     <a href="#" class="button">Book Workshop</a>
                 </div>
             </header>
-    
-            <?php
-            if(have_posts()) {
-                while(have_posts()) {
-                    the_post();
-                    the_title();
-                    the_content();
-                }
-            }
-
-            else {
-                echo("currently no posts");
-            }
-
-            ?>
 
             <main>
                 <section id="workshops">
 
-                    <p class="super-headline">Find your entrance level & book a workshop with Aaron</p>
-                    <h2>If you never start, you will never know.</h2>
+                <?php
+                    $workshops_headline_query = new WP_Query( array( 'p' => 47 ));
+                    if( $workshops_headline_query->have_posts() ) {
+                        while( $workshops_headline_query->have_posts() ) {
+                            $workshops_headline_query->the_post(); // iterate the post here
+                ?>
+
+                    <p class="super-headline"><?= get_post_custom_values( 'super-headline' )[0]; ?></p>
+                    <h2><?php the_title(); ?></h2>
+
+                <?php
+                        }
+                    }
+                ?>
     
                     <div class="workshop-grid">
                     <?php
@@ -166,71 +163,24 @@
                     <p class="super-headline">Making waves since 2004</p>
                     <h2>In the News</h2>
                     <div class="news-container">
+                        <?php
+                            $news_query = new WP_Query(array('category_name' => 'news' ));
+                            if( $news_query->have_posts() ) {
+                                while( $news_query->have_posts() ) {
+                                    $news_query->the_post(); // iterate the post here
+                        ?>
+
                         <article> 
-                            <h3>Sydney Dance Festival 2022</h3>
-                            <img
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcset="
-                                    <?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_200.jpg 200w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_922.jpg 922w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_1272.jpg 1272w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_1337.jpg 1337w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_1400.jpg 1400w"
-                                src="<?php echo get_template_directory_uri() ?>/images/dance_festival_performance_jqsv8l_c_scale,w_1400.jpg"
-                                alt="Aaron performing at the Sydney dance festival 2022" >
-                            <p> 
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et
-                                dolore magna aliquyam erat, sed diam voluptua. At vero
-                                eos et accusam et justo duo dolores et ea rebum. Stet
-                                clita kasd gubergren, no sea takimata sanctus est.
-                            </p>
+                            <h3><?php the_title(); ?></h3>
+                            <?php the_post_thumbnail() ?>
+                            <?php the_content(); ?>
                             <a href="#" class="button">Read more</a>
                         </article>
-        
-                        <article> 
-                            <h3>"Dance Pool" 2023 sold out!</h3>
-                            <img
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcset="
-                                    <?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_200.jpg 200w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_803.jpg 803w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_1157.jpg 1157w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_1283.jpg 1283w,
-                                    <?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_1400.jpg 1400w"
-                                src="<?php echo get_template_directory_uri() ?>/images/dance_pool_group_pic_m9qg0e_c_scale,w_1400.jpg"
-                                alt="Group picture of 'Dance Pool" >
-                            <p> 
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et
-                                dolore magna aliquyam erat, sed diam voluptua. At vero
-                                eos et accusam et justo duo dolores et ea rebum. Stet
-                                clita kasd gubergren, no sea takimata sanctus est.
-                            </p>
-                            <a href="#" class="button">Read more</a>
-                        </article>
-        
-                        <article> 
-                            <h3>New London Workshop Oct. 2025</h3>
-                            <img
-                                sizes="(max-width: 1400px) 100vw, 1400px"
-                                srcset="
-                                    <?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_200.jpg 200w,
-                                    <?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_948.jpg 948w,
-                                    <?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_1228.jpg 1228w,
-                                    <?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_1349.jpg 1349w,
-                                    <?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_1400.jpg 1400w"
-                                src="<?php echo get_template_directory_uri() ?>/images/workshop_snapshot_whqaqt_c_scale,w_1400.jpg"
-                                alt="Aaron at a workshop">
-                            <p> 
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                                sed diam nonumy eirmod tempor invidunt ut labore et
-                                dolore magna aliquyam erat, sed diam voluptua. At vero
-                                eos et accusam et justo duo dolores et ea rebum. Stet
-                                clita kasd gubergren, no sea takimata sanctus est.
-                            </p>
-                            <a href="#" class="button">Read more</a>
-                        </article>
+
+                        <?php
+                                }
+                            }
+                        ?>
                     </div>
                 </section>
             </main>
