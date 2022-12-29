@@ -792,15 +792,17 @@ header .headline-button-wrapper a:hover {
   }
   #about .about-container {
     display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
   #about img {
-    width: 50%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
   #about .text-content {
     margin: 0 45px;
-    width: 35%;
+    width: 85%;
   }
   #about .text-content .super-headline {
     margin-top: 15px;
@@ -825,6 +827,7 @@ header .headline-button-wrapper a:hover {
     font-size: 1.1rem;
     padding: 15px 30px;
     transition: 0.35s ease-in-out;
+    margin-bottom: 15px;
   }
   #about .text-content a:hover {
     cursor: pointer;
