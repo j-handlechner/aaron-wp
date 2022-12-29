@@ -63,6 +63,8 @@
             </header>
 
             <main>
+                <?php if (is_front_page()) { ?>
+
                 <section id="workshops">
 
                 <?php
@@ -105,7 +107,7 @@
                                         </h3>
                                         <?php the_content(); ?>   
                                     </div>
-                                    <a href="#" class="button">Book Workshop</a>  
+                                    <a href=<?= the_permalink(); ?> class="button">Book Workshop</a>  
                                 
                                 
                                 </div>
@@ -192,7 +194,7 @@
                             <h3><?php the_title(); ?></h3>
                             <?php the_post_thumbnail() ?>
                             <?php the_content(); ?>
-                            <a href="#" class="button">Read more</a>
+                            <a href=<?php the_permalink(); ?> class="button">Read more</a>
                         </article>
 
                         <?php
@@ -201,6 +203,16 @@
                         ?>
                     </div>
                 </section>
+
+                <?php } else { // frontpage ?>
+                <?php if(have_posts()) {
+                    while(have_posts()) {
+                        the_post();
+                        the_title();
+                        the_content();
+                    }
+                } ?>
+                <?php } ?>
             </main>
     
             <footer>
