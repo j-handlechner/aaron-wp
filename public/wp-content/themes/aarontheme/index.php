@@ -13,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Aaron G. Miller | Choreographer</title>
+        <title>Aaron G. Miller | <?= get_the_title(); ?></title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -47,90 +47,79 @@
                 </div>
             </header>
     
+            <?php
+            if(have_posts()) {
+                while(have_posts()) {
+                    the_post();
+                    the_title();
+                    the_content();
+                }
+            }
+
+            else {
+                echo("currently no posts");
+            }
+
+            ?>
+
             <main>
                 <section id="workshops">
+
                     <p class="super-headline">Find your entrance level & book a workshop with Aaron</p>
                     <h2>If you never start, you will never know.</h2>
     
                     <div class="workshop-grid">
+                    <?php
+                        $workshops_query = new WP_Query( array( 'category_name' => 'level', 'order' => 'ASC' ));
+                        if( $workshops_query->have_posts() ) {
+
+                            while( $workshops_query->have_posts() ) {
+                                $workshops_query->the_post(); // iterate the post here
+                    ?>
+
                         <div class="level">
-                            <p class="only-desktop step-number">3</p>
+                            <p class="only-desktop step-number <?= get_post_custom_values( 'level-number-position' )[0]; ?>"><?= get_post_custom_values( 'level' )[0]; ?></p>
                             <div class="level-icon-wrapper only-mobile">
-                                <p>3</p>
+                                <?= get_post_custom_values( 'level' )[0]; ?>
                                 <div class="background-circle"></div>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/level-3.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
+                                <?php the_post_thumbnail(); ?>
                             </div>
-    
+        
                             <div class="step-content config-1">
                                 <div class="step-text config-1">
                                     <div>
-                                        <h3>As pro as you can get</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla voluptas corrupti quam delectus tempore ipsa veniam inventore quae illum dolorem consectetur, rerum totam explicabo odit obcaecati officia nobis pariatur ex?</p>    
+                                        <h3>
+                                            <?php the_title(); ?>
+                                        </h3>
+                                        <p>
+                                            <?php the_content(); ?>
+                                        </p>    
                                     </div>
                                     <a href="#" class="button">Book Workshop</a>  
+                                
+                                
                                 </div>
 
                                 <div class="background-circle config-1 only-desktop"></div>
-                                <img class="only-desktop config-1 icon" src="<?php echo get_template_directory_uri() ?>/images/level-3.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-1">
-                                <blockquote class="config-1">Respect your talent!</blockquote>
-                            </div>
-                            
-                        </div>
-                        <p class='apply'>Apply for an audition now!</p>
-        
-    
-                        <div class="level">
-                            <p class="only-desktop step-number centered">2</p>
-                            <div class="level-icon-wrapper only-mobile">
-                                <p>2</p>
-                                <div class="background-circle"></div>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/level-2.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
-                            </div>
-    
-                            <div class="step-content config-2">
-                                <div class="step-text config-2">
-                                    <div>
-                                        <h3>Aspire more</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla voluptas corrupti quam delectus tempore ipsa veniam inventore quae illum dolorem consectetur, rerum totam explicabo odit obcaecati officia nobis pariatur ex?</p>
-                                    </div>
-                                    <a href="#" class="button">Book Workshop</a>    
-                                </div>        
 
-                                <div class="background-circle config-2 only-desktop"></div>
-                                <img class="only-desktop config-2 icon" src="<?php echo get_template_directory_uri() ?>/images/level-2.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-2">
-                                <blockquote class="config-2">Thank yourself for leveling up now!</blockquote>
-                            </div>
-                        </div>
-                        <p class='apply config-2'>Registration now open for everybody!</p>
-    
-    
-                        <div class="level">
-                            <p class="only-desktop step-number bottom">1</p>
-                            <div class="level-icon-wrapper only-mobile">
-                                <p>1</p>
-                                <div class="background-circle"></div>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/level-1.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
-                            </div>
-    
-                            <div class="step-content config-3">
-                                <div class="step-text config-3">
-                                    <div>
-                                        <h3>Learn the Basics profoundly</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla voluptas corrupti quam delectus tempore ipsa veniam inventore quae illum dolorem consectetur, rerum totam explicabo odit obcaecati officia nobis pariatur ex?</p>
-                                    </div>
-
-                                    <a href="#" class="button">Book Workshop</a>  
+                                <div class="only-desktop icon config-1">
+                                    <?php the_post_thumbnail(); ?>
                                 </div>
 
-                                <div class="background-circle config-3 only-desktop"></div>
-                                <img class="only-desktop config-3 icon" src="<?php echo get_template_directory_uri() ?>/images/level-1.svg" alt='Icon showing dancer stretching her leg up to her nose.'>
-                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-3">
-                                <blockquote class="config-3">Fall in love with dancing!</blockquote>        
+                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-1">
+                                <blockquote class="config-1">
+                                    <?= get_post_custom_values( 'quote' )[0]; ?>
+                                </blockquote>
                             </div>
+                                
                         </div>
-                        <p class='apply config-3'>Registration now open for everybody!</p>
+                    <?php
+                            }
+                        }
+                    ?>
+    
+                    <p class='apply audition'>Apply for an audition now!</p>     
+                    <p class='apply register'>Registration now open for everybody!</p>
     
                     </div>
                 </section>
@@ -148,12 +137,28 @@
                             src="<?php echo get_template_directory_uri() ?>/images/about-image-cut_buaoaf_c_scale,w_1237.png"
                             alt="portrait of aaron" >
                         <div class="text-content">
-                            <p class="super-headline">Why I teach</p>
-                            <h2>Hi, I'm Aaron!</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat itaque incidunt, nihil, recusandae autem aut perferendis reiciendis a neque veniam quibusdam animi ex tempora reprehenderit, aspernatur asperiores consequatur consectetur ipsum!</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat itaque incidunt, nihil, recusandae autem aut perferendis reiciendis a neque veniam quibusdam animi ex tempora reprehenderit, aspernatur asperiores consequatur consectetur ipsum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat itaque incidunt, nihil, recusandae autem aut perferendis reiciendis a neque veniam quibusdam animi ex tempora reprehenderit, aspernatur asperiores consequatur consectetur ipsum!</p>
+                        <?php
+                            $aboutme_query = new WP_Query( array( 'p' => 8 ));
+                            if( $aboutme_query->have_posts() ) {
 
-                            <a>Learn more</a>
+                                while( $aboutme_query->have_posts() ) {
+                                    $aboutme_query->the_post(); // iterate the post here
+                        ?>
+
+                            <p class="super-headline">
+                                <?= get_post_custom_values( 'super-headline' )[0]; ?>
+                            </p>
+                            
+                            <h2><?php the_title(); ?></h2>
+                            <?php the_content(); ?>
+                            <a href="#">Learn more</a>
+                            
+                        <?php
+                                }
+                            }
+
+                            wp_reset_postdata();
+                        ?>
                         </div>
                     </div>     
                 </section>

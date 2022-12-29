@@ -364,7 +364,7 @@ header .headline-button-wrapper a:hover {
 @media (min-width: 50rem) {
   header {
     height: 80vh;
-    background-image: url("./images/aaron-hero.png");
+    background-image: url("../images/aaron-hero.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: 95%;
@@ -387,7 +387,7 @@ header .headline-button-wrapper a:hover {
 }
 @media (min-width: 0rem) and (max-width: 49.9375rem) {
   header {
-    background-image: url("./images/aaron-hero.png");
+    background-image: url("../images/aaron-hero.png");
     background-size: cover;
     aspect-ratio: 1/1;
   }
@@ -493,6 +493,9 @@ header .headline-button-wrapper a:hover {
   #workshops .workshop-grid .level .step-content .icon {
     width: 45%;
   }
+  #workshops .workshop-grid .level .step-content .icon img {
+    width: 100%;
+  }
   #workshops .workshop-grid .level .step-content .background-circle {
     background-color: hsl(210deg, 3%, 27%);
     width: 75%;
@@ -574,7 +577,13 @@ header .headline-button-wrapper a:hover {
     padding: 32px;
     font-weight: 200;
   }
-  #workshops .workshop-grid .apply.config-2, #workshops .workshop-grid .apply.config-3 {
+
+  #workshops .workshop-grid .apply.audition {
+    grid-row: 1/span 1;
+    grid-column: 2/span 1;
+  }
+
+  #workshops .workshop-grid .apply.register {
     grid-row: 2/span 2;
     grid-column: 2/span 1;
   }
@@ -892,3 +901,5 @@ header .headline-button-wrapper a:hover {
     cursor: pointer;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
