@@ -13,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Aaron G. Miller | <?= get_the_title(); ?></title>
+        <title>Aaron G. Miller | Choreographer</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -42,7 +42,22 @@
                     </ul>                
                 </nav>
                 <div class="headline-button-wrapper">
-                    <h2>I believe you can dance.</h2>
+                
+                <?php
+                    $hero_headline_query = new WP_Query( array( 'p' => 62 ));
+                    if( $hero_headline_query->have_posts() ) {
+                        while( $hero_headline_query->have_posts() ) {
+                            $hero_headline_query->the_post(); // iterate the post here
+                ?>
+
+
+                <h2><?php the_title(); ?></h2>
+
+                <?php
+                    }
+                }
+                ?>
+
                     <a href="#" class="button">Book Workshop</a>
                 </div>
             </header>
@@ -161,8 +176,21 @@
                     </div>     
                 </section>
                 <section id="news">
-                    <p class="super-headline">Making waves since 2004</p>
-                    <h2>In the News</h2>
+                    <?php
+                        $news_headline_query = new WP_Query( array( 'p' => 68 ));
+                        if( $news_headline_query->have_posts() ) {
+                            while( $news_headline_query->have_posts() ) {
+                                $news_headline_query->the_post(); // iterate the post here
+                    ?>
+
+                    <p class="super-headline"><?= get_post_custom_values( 'super-headline' )[0]; ?></p>          
+                    <h2><?php the_title(); ?></h2>
+
+                    <?php
+                        }
+                    }
+                    ?>
+
                     <div class="news-container">
                         <?php
                             $news_query = new WP_Query(array('category_name' => 'news' ));
@@ -189,7 +217,7 @@
             <footer>
                 <div class="footer-container">
                     <h4 class="item-1">Thank you for your interest in Art!</h4>
-                    <p class="item-2">© 2004 – 2023 Aaron G. Miller</p>
+                    <p class="item-2">© 2004 – <?php echo date("Y"); ?>  Aaron G. Miller</p>
                     <a href="#" class="item-3">Imprint & Privacy</a>
                 </div> 
             </footer>

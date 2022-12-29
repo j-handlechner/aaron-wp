@@ -356,9 +356,12 @@ header .headline-button-wrapper a {
   text-align: center;
   font-size: 1.1rem;
   padding: 15px 30px;
+  transition: 0.35s ease-in-out;
 }
 header .headline-button-wrapper a:hover {
   cursor: pointer;
+  background-color: #ef9d5f;
+  color: black;
 }
 
 @media (min-width: 50rem) {
@@ -870,9 +873,13 @@ header .headline-button-wrapper a:hover {
     background-color: transparent;
     text-align: center;
     margin-left: 20px;
+    transition: 0.35s ease-in-out;
   }
+
   #news article a:hover {
     cursor: pointer;
+    background-color: #ef9d5f;
+    color: white;
   }
 }
 @media (min-width: 50rem) {
@@ -934,9 +941,12 @@ header .headline-button-wrapper a:hover {
     padding: 15px 30px;
     margin-left: 32px;
     margin-bottom: 32px;
+    transition: 0.35s ease-in-out;
   }
   #news article a:hover {
     cursor: pointer;
+    background-color: #ef9d5f;
+    color: white;
   }
 }
 
