@@ -489,7 +489,14 @@ header .headline-button-wrapper a:hover {
   }
   #workshops .workshop-grid .level .step-content .button {
     margin-top: 36px;
+    transition: 0.35s ease-in-out;
   }
+
+  #workshops .workshop-grid .level .step-content .button:hover {
+    background-color: #ef9d5f;
+    color: black;
+  }
+
   #workshops .workshop-grid .level .step-content .icon {
     width: 45%;
   }
@@ -673,9 +680,12 @@ header .headline-button-wrapper a:hover {
     background-color: transparent;
     text-align: center;
     margin-bottom: 30px;
+    transition: 0.35s ease-in-out;
   }
   #workshops .workshop-grid .level a:hover {
     cursor: pointer;
+    background-color: #ef9d5f;
+    color: black;
   }
   #workshops .workshop-grid .level .quote-sign {
     width: 72px;
@@ -700,6 +710,26 @@ header .headline-button-wrapper a:hover {
     font-weight: 200;
     display: block;
     padding-top: 8px;
+  }
+
+  #workshops .workshop-grid .apply.audition {
+    grid-row: 1/span 1;
+    grid-column: 2/span 1;
+  }
+
+  #workshops .workshop-grid .apply.register {
+    grid-row: span 1;
+    grid-column: 2/span 1;
+  }
+
+  #workshops .workshop-grid .apply.register-1 {
+    grid-row: 2 / span 1;
+    grid-column: 2/span 1;
+  }
+
+  #workshops .workshop-grid .apply.register-2 {
+    grid-row: 3 / span 1;
+    grid-column: 2/span 1;
   }
 }
 #about {
@@ -743,6 +773,8 @@ header .headline-button-wrapper a:hover {
   }
   #about .text-content a:hover {
     cursor: pointer;
+    background-color: #ef9d5f;
+    color: white;
   }
 }
 @media (min-width: 50rem) {
@@ -787,9 +819,12 @@ header .headline-button-wrapper a:hover {
     text-align: center;
     font-size: 1.1rem;
     padding: 15px 30px;
+    transition: 0.35s ease-in-out;
   }
   #about .text-content a:hover {
     cursor: pointer;
+    background-color: #ef9d5f;
+    color: white;
   }
 }
 @media (min-width: 0rem) and (max-width: 49.9375rem) {

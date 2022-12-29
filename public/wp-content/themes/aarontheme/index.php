@@ -77,7 +77,7 @@
                         <div class="level">
                             <p class="only-desktop step-number <?= get_post_custom_values( 'level-number-position' )[0]; ?>"><?= get_post_custom_values( 'level' )[0]; ?></p>
                             <div class="level-icon-wrapper only-mobile">
-                                <?= get_post_custom_values( 'level' )[0]; ?>
+                                <p><?= get_post_custom_values( 'level' )[0]; ?></p>
                                 <div class="background-circle"></div>
                                 <?php the_post_thumbnail(); ?>
                             </div>
@@ -116,7 +116,8 @@
                     ?>
     
                     <p class='apply audition'>Apply for an audition now!</p>     
-                    <p class='apply register'>Registration now open for everybody!</p>
+                    <p class='apply register register-1'>Registration now open for everybody!</p>
+                    <p class='apply register register-2'>Registration now open for everybody!</p>
     
                     </div>
                 </section>
