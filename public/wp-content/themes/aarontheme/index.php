@@ -97,8 +97,8 @@
                                 <?php the_post_thumbnail(); ?>
                             </div>
         
-                            <div class="step-content config-1">
-                                <div class="step-text config-1">
+                            <div class="step-content config-<?= get_post_custom_values( 'configuration' )[0]; ?>">
+                                <div class="step-text config-<?= get_post_custom_values( 'configuration' )[0]; ?>">
                                     <div>
                                         <h3>
                                             <?php the_title(); ?>
@@ -110,14 +110,14 @@
                                 
                                 </div>
 
-                                <div class="background-circle config-1 only-desktop"></div>
+                                <div class="background-circle config-<?= get_post_custom_values( 'configuration' )[0]; ?> only-desktop"></div>
 
-                                <div class="only-desktop icon config-1">
+                                <div class="only-desktop icon config-<?= get_post_custom_values( 'configuration' )[0]; ?>">
                                     <?php the_post_thumbnail(); ?>
                                 </div>
 
-                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-1">
-                                <blockquote class="config-1">
+                                <img src="<?php echo get_template_directory_uri() ?>/images/quote.svg" alt='quote sign' class="quote-sign config-<?= get_post_custom_values( 'configuration' )[0]; ?>">
+                                <blockquote class="config-<?= get_post_custom_values( 'configuration' )[0]; ?>">
                                     <?= get_post_custom_values( 'quote' )[0]; ?>
                                 </blockquote>
                             </div>
