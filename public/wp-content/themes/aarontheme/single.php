@@ -1,5 +1,3 @@
-<h1>this is gonna display a SINGLE Level from the workshops page!</h1>
-
 <!--
     TODO: – Add title
     – Add keywords & description
